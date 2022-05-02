@@ -1,0 +1,110 @@
+<!-- Context -->
+<!-- This media player is an audio player that is made to accompany you in studying or doing assignments.  -->
+<!-- This audio player gives a relaxed impression that helps to focus more on doing something. -->
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Study Music Player</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://use.typekit.net/djm2tvs.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <!-- Song List -->
+        <div class="song-list" onclick="openNav()">
+            <i class="fa fa-arrow-left" aria-hidden="true"></i>
+            <p>Song List</p>
+        </div>
+        <!-- Song List Nav -->
+        <div id="song-nav" class="sidenav">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">
+                <div class="song-list-close">
+                    <i class="fa fa-arrow-right" aria-hidden="true"></i>
+                    <p>Song List</p>
+                </div>
+            </a>
+            <div class="song-names" id="first-song" onclick="playtrack(1)">Song 1</div>
+            <div class="song-names" id="second-song" onclick="playtrack(2)">Song 2</div>
+            <div class="song-names" id="third-song" onclick="playtrack(3)"> Song 3</div>
+            <a href="javascript:void(0)" class="nextbtn" onclick="next_list()">
+                <i class="fa fa-long-arrow-down" aria-hidden="true"></i>
+            </a>
+        </div>
+        <!-- Upper Part -->
+        <div class="layout">
+            <div class="col_layout">
+                <!--- Song Title & Artist Name --->
+                <div class="title">
+                    <p class="now_playing">Now Playing: </p>
+                    <p class="title-title">title.mp3</p>
+                    <p> - </p>
+                    <p class="title-artist">Artist name</p>
+                </div>
+                <!--- Song GIF --->
+                <img id="track_image" />
+                <!--- Song Title & Artist Name Mobile --->
+                <div class="title-mobile">
+                    <p class="title-title">title.mp3</p>
+                    <p class="title-artist">Artist name</p>
+                </div>
+                <!--- Song Duration --->
+                <div class="duration">
+                    <input type="range" min="0" max="100" value="0" id="duration_slider" onchange="change_duration()">
+                </div>
+                <div class="text-duration">
+                    <p class="duration_show" id="show_duration">00:00/00:00</p>
+                </div>
+                <!--- Multimedia Tools --->
+                <div class="middle">
+                    <div class="prev-titles" onclick="previous_song()">
+                        <p class="prev-artist">Artist name</p>
+                        <p class="prev-title">title.mp3</p>
+                    </div>
+                    <button onclick="previous_song()" id="pre"><i class="fa fa-long-arrow-left" aria-hidden="true"></i></button>
+                    <button onclick="skip_backward()" id="backward"><i class="fa fa-backward aria-hidden=" true"></i></button>
+                    <button onclick="justplay()" id="play"><i class="fa fa-play" aria-hidden="true"></i></button>
+                    <button onclick="stopsong()" id="play"><i class="fa fa fa-stop" aria-hidden="true"></i></button>
+                    <button onclick="skip_forward()" id="forward"><i class="fa fa-forward aria-hidden=" true"></i></button>
+                    <button onclick="next_song()" id="next"><i class="fa fa-long-arrow-right" aria-hidden="true"></i></button>
+                    <div class="next-titles" onclick="next_song()">
+                        <p class="next-artist">Artist name</p>
+                        <p class="next-title">title.mp3</p>
+                    </div>
+                </div>
+                <!-- Prev & Next Song Info Mobile View -->
+                <div class="middle-mobile">
+                    <div class="prev-titles" onclick="previous_song()">
+                        <p class="prev-artist">Artist name</p>
+                        <p class="prev-title">title.mp3</p>
+                    </div>
+                    <button onclick="previous_song()"><i class="fa fa-step-backward" aria-hidden="true"></i></button>
+                    <button onclick="next_song()"><i class="fa fa-step-forward" aria-hidden="true"></i></button>
+                    <div class="next-titles" onclick="next_song()">
+                        <p class="next-artist">Artist name</p>
+                        <p class="next-title">title.mp3</p>
+                    </div>
+                </div>
+                <!-- Volume Mobile -->
+                <div class="volume-mobile">
+                    <input type="range"" min=" 0" max="100" value="70" onchange="volume_change_mobile()" id="volume_mobile">
+                    <i class="fa fa-volume-up" aria-hidden="true" onclick="sound_settings_mobile()" id="volume_icon_mobile"></i>
+                    <p id="volume_show_mobile">70</p>
+                </div>
+            </div>
+            <!-- Volume -->
+            <div class="volume">
+                <input type="range" orient="vertical" min="0" max="100" value="70" onchange="volume_change()" id="volume">
+                <i class="fa fa-volume-up" aria-hidden="true" onclick="sound_settings()" id="volume_icon"></i>
+                <p id="volume_show">70</p>
+            </div>
+        </div>
+    </div>
+    <!--- Add javascript file --->
+    <script src="custom-player.js"></script>
+</body>
+
+</html>

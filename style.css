@@ -1,0 +1,495 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: neue-haas-grotesk-display, sans-serif;
+}
+
+body {
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.container {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: #0F1324;
+}
+
+.layout {
+    display: flex;
+    width: 80%;
+    justify-content: center;
+    align-items: center;
+}
+
+.song-list {
+    position: absolute;
+    top: 10px;
+    right: 0;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    color: white;
+    font-weight: 600;
+    gap: 1rem;
+    font-size: 20px;
+    margin-right: 2rem;
+    cursor: pointer;
+}
+
+.song-list-close {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    color: white;
+    font-weight: 600;
+    gap: 1rem;
+    font-size: 20px;
+    margin-right: 2rem;
+    cursor: pointer;
+}
+
+.sidenav {
+    height: 30%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    right: 0;
+    background-color: #3C7795;
+    overflow: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+    border-radius: 0px 0px 0px 30px;
+}
+
+.sidenav a {
+    padding: 8px 8px 8px 20px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
+
+.sidenav .song-names {
+    cursor: pointer;
+    margin: 10px 25px 10px 25px;
+    padding: 8px 8px 8px 20px;
+    text-decoration: none;
+    font-size: 12px;
+    color: white;
+    background: #315868;
+    border-radius: 30px;
+    display: block;
+    transition: 0.3s;
+    max-width: 200px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-break: break-all
+}
+
+.sidenav .song-names:hover {
+    background: #0F1324;
+}
+
+.sidenav a:hover {
+    color: #0F1324;
+}
+
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+}
+
+.sidenav .nextbtn {
+    position: absolute;
+    bottom: 0;
+    left: 40%;
+    color: white;
+}
+
+.col_layout {
+    width: 80%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.col_layout img {
+    width: 100%;
+    box-shadow: 1px 0px 20px 12px rgba(240, 240, 240, 0.2);
+}
+
+.title {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    color: white;
+    margin-bottom: 10px;
+    font-size: 24px;
+}
+
+.title-mobile {
+    display: none;
+}
+
+.now_playing {
+    font-weight: 700;
+    margin-right: 10px;
+}
+
+.title .title-title {
+    text-transform: capitalize;
+    color: white;
+}
+
+.title .title-artist {
+    text-transform: capitalize;
+    color: white;
+}
+
+.col_layout .middle .prev-titles {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+    font-size: 14px;
+    cursor: pointer;
+    width: 150px;
+}
+
+.col_layout .middle .prev-titles p {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-break: break-all;
+    max-width: 100px;
+    max-height: 20px;
+}
+
+
+.col_layout .middle .next-titles {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+    font-size: 14px;
+    cursor: pointer;
+    width: 150px;
+}
+
+.col_layout .middle .next-titles p {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-break: break-all;
+    max-width: 100px;
+    max-height: 20px;
+}
+
+.col_layout .duration-show {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.prev-titles .prev-title {
+    text-transform: capitalize;
+    color: white;
+}
+
+.prev-titles .prev-artist {
+    text-transform: capitalize;
+    color: white;
+}
+
+.next-titles .next-title {
+    text-transform: capitalize;
+    color: white;
+}
+
+.next-titles .next-artist {
+    text-transform: capitalize;
+    color: white;
+}
+
+
+/* both range slider part */
+input[type="range"] {
+    -webkit-appearance: slider-horizontal;
+    width: 100%;
+    outline: none;
+    height: 8px;
+    border-radius: 10px;
+}
+
+input[type="range"][orient=vertical] {
+    -webkit-appearance: slider-vertical;
+    /* Chromium */
+    width: 8px;
+    height: 100%;
+    outline: none;
+    border-radius: 10px;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    height: 15px;
+    width: 15px;
+    background: #017B8D;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+
+/* volume part */
+.layout .volume {
+    width: 6%;
+    height: 85%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    color: white;
+}
+
+.layout .volume p {
+    font-size: 15px;
+    margin-bottom: 4.5rem;
+}
+
+.layout .volume i {
+    font-size: 25px;
+    margin-top: 10px;
+    cursor: pointer;
+    color: white;
+}
+
+.volume-mobile {
+    display: none;
+}
+
+/* duration part */
+.duration {
+    display: flex;
+    width: 100%;
+    margin-top: 1.5rem;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.text-duration {
+    display: flex;
+    width: 100%;
+    justify-content: flex-start;
+    color: white;
+}
+
+
+/* multimedia part */
+.col_layout .middle {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1.5rem;
+    gap: 1rem;
+}
+
+.col_layout .middle-mobile {
+    display: none;
+}
+
+.col_layout .middle button {
+    border: none;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    outline: none;
+    transition: 0.5s;
+    background: transparent;
+}
+
+.col_layout .middle #pre {
+    margin-right: 3rem;
+}
+
+.col_layout .middle #next {
+    margin-left: 3rem;
+}
+
+#play {
+    background: #FF3F82;
+}
+
+.col_layout i:before {
+    color: white;
+    font-size: 20px;
+}
+
+.col_layout .show_song_no {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 30px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 12px;
+    color: white;
+    border-radius: 5px;
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.col_layout .show_song_no p:nth-child(2) {
+    margin: 0 5px;
+}
+
+/* Media Queries */
+
+@media screen and (max-height: 450px) {
+    .sidenav {
+        padding-top: 15px;
+    }
+
+    .sidenav a {
+        font-size: 18px;
+    }
+}
+
+/* Adjust for mobile view */
+@media only screen and (max-width: 600px) {
+    .title {
+        display: none;
+    }
+
+    #pre {
+        display: none;
+    }
+
+    #next {
+        display: none;
+    }
+
+    .col_layout .middle .next-titles {
+        display: none;
+    }
+
+    .col_layout .middle .prev-titles {
+        display: none;
+    }
+
+    .col_layout img {
+        width: 300px;
+        height: 300px;
+        object-fit: cover;
+    }
+
+    .container {
+        padding-top: 10%;
+    }
+
+    .sidenav .song-names {
+        font-size: 18px;
+    }
+
+    .title-mobile {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        margin-top: 2rem;
+    }
+
+    .title-mobile .title-title {
+        font-size: 28px;
+        font-weight: 700;
+        margin-top: 1rem;
+    }
+
+    .layout .volume {
+        display: none;
+    }
+
+    .duration {
+        margin-top: 2rem;
+    }
+
+    .text-duration {
+        margin-top: 0.5rem;
+    }
+
+    .col_layout .middle-mobile {
+        width: 150%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 3rem;
+        gap: 1rem;
+    }
+
+    .col_layout .middle-mobile button {
+        border: none;
+        height: 50px;
+        width: 50px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        outline: none;
+        transition: 0.5s;
+        background: transparent;
+    }
+
+    .col_layout .middle-mobile p {
+        text-align: center;
+        font-size: 12px;
+        max-width: 60px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        word-break: break-all;
+        max-height: 15px;
+    }
+
+    .volume-mobile {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        gap: 1rem;
+        margin-top: 4rem;
+    }
+
+
+}
+
+@media only screen and (max-width: 400px) {
+    .col_layout img {
+        width: 150px;
+        height: 150px;
+        object-fit: cover;
+    }
+}
